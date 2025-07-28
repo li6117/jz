@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" type="text/css" href="./css/demo3.css">
+</head>
+
+<body>
+    <div class="cotainer">
+        <div class="chat-from">
+            <div class="chat-header-swiper">
+                <img src="./image/2.jpg" alt="Banner 2" class="active">
+                <img src="./image/3.jpg" alt="Banner 3">
+                <img src="./image/4.jpg" alt="Banner 4">
+            </div>
+            <div class="chat-header"></div>
+            <div class="chat-list">
+                <ul>
+                </ul>
+            </div>
+            <div class="chat-menu">
+                <ul id="menu_list"></ul>
+            </div>
+            <div class="chat-footer">
+                <div class="copyright">
+                    <font class="company"></font>|
+                    <span class="privacy" onclick="showPrivacy();">《个人信息保护声明》</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="shadow"></div>
+            <div class="content">
+                <div class="header">个人信息保护声明</div>
+                <div class="msg">
+                    <p>该声明由本页面创建者（即下文的“我们/公司”）向您提供，包含涉及您个人信息权益的重要约定，请您在提供个人信息前仔细阅读。如有问题，可联系本页面创建者。</p>
+                    <p>公司名称: <font class="company"></font></p>
+                    <p>我们/公司非常重视用户信息的保护。您在使用我们的相关服务（以下简称“服务”），并在相应页面填写个人信息前，请您务必仔细阅读本声明。您一旦主动在页面提供您的个人信息并进行提交操作，即意味着您同意我们按照本声明收集、 使用您的相关信息。</p>
+                    <p class="h5">一、个人信息的收集</p>
+                    <p>1、我们提供服务时，可能会收集下列与您有关的个人信息：</p>
+                    <p>您在使用本页面所涉及的表单、智能电话、卡券领取、客服工具等功能中提供的信息，包括姓名、手机号及使用本页面提供的产品/服务涉及的必要信息。</p>
+                    <p>请您注意，具体需要提供的信息可能会根据我们提供的产品/ 服务的不同而有所差异，请以向您展示的产品/服务以及所对应的要求提供相关个人信息，我们会在产品/服务页面或下文向您说明相关个人信息的收集和使用规则。</p>
+                    <p>2、您需要注意的是，以上个人信息均是您自愿提供。您有权拒绝提供，但可能阻碍您正常使用相应的服务、功能或者无法达到服务拟达到的效果。</p>
+                    <p>3、如从本服务或本页面跳转到其他第三方服务商提供的服务时，请注意甄别信息内容及提供的服务，保护好个人隐私信息。</p>
+                    <p class="h5">二、个人信息的使用</p>
+                    <p>1、您同意，我们可以通过以下方式对个人信息进行使用：</p>
+                    <p>（1）我们收集您的姓名、手机号用于及时与您取得联系，并与您沟通产品或服务的相关事宜。</p>
+                    <p>（2）为了更好的提供服务，您在通过电话或客服工具与我们沟通时，我们会记录您的手机号及相关沟通情况。</p>
+                    <p>（3）如您拟查询、修改、删除、撤回授权您提交的个人信息的，或对个人信息保护问题有任何疑问或投诉，您可以与我们联系，我们将尽快配合处理。</p>
+                    <p>2、我们将严格保护您的个人信息安全。我们将采用适当制度、组织和安全技术等措施来保护您的个人信息不被未经授权的访问、使用或泄漏。</p>
+                    <p>3、为了实现上述目的，我们可能会委托我们的技术合作伙伴（例如呼叫服务商）为您提供服务，并由其在服务范围内进行合法、正当、必要地使用。</p>
+                    <p>三、未成年人信息的特殊保护</p>
+                    <p>1、若您是未满18周岁的未成年人，在使用本功能前，应在您的父母或其他监护人监护、指导下共同阅读并同意本隐私政策。</p>
+                    <p>2、若您是未满14周岁的未成年人的监护人，在使用本功能前，应为您的被监护人阅读并同意本隐私政策。</p>
+                    <p class="h5">四、适用法律</p>
+                    <p>本声明适用中华人民共和国法律。</p>
+                    <p class="h5">五、变更</p>
+                    <p>我们会适时对本声明进行修订，该等修订构成本声明的一部分。公司会将修改后的声明予以发布。在该种情况下，若您继续使用我们的服务，即表示同意接受经修订的声明的约束。</p>
+                </div>
+                <div class="bottom" onclick="closePrivacy();">我已阅读并知晓</div>
+            </div>
+        </div>
+        <div class="pre-img">
+            <div>
+                <img id="pre-img" src="">
+            </div>
+        </div>
+        <div class="shuruing">
+            老师正在输入中
+        </div>
+    </div>
+    <script src="./js/jquery.3.2.1.min.js"></script>
+    <script src="./js/jquery.md5.js"></script>
+    <script src="./js/main.js?v=2"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let currentIndex = 0;
+            const banners = $('.chat-header-swiper img');
+            const bannerCount = banners.length;
+            function showNextBanner() {
+                banners.eq(currentIndex).removeClass('active');
+                currentIndex = (currentIndex + 1) % bannerCount;
+                banners.eq(currentIndex).addClass('active');
+            }
+            setInterval(showNextBanner, 2000);
+        });
+        var pageInfo = {
+            "title": "摩尔企服科技",
+            "company": "摩尔企服科技",
+            "jumpurl": "https://d.xhu888.cn/sites/20230804/dmsDdIAos5Md4b58.html",
+            "domain": ["zhb1.com", "bd.pdb2.com", ""],
+            "key": ["f37666d51a39f17377481f04f0f2083a", "6057873b006cf30e218cb65d98939cb3", ""],
+            "nike":{
+                "isshow":false, //是否展示对话框上方昵称
+                "text":'摩尔企服 王测试', //是否展示对话框上方昵称
+            },
+            "topimg": "",
+            "headimg": "https://hunyuan-base-prod-1258344703.cos.ap-guangzhou.myqcloud.com/hunyuan_open/agentlogo/0c43179ce56ea7859598cc45775a455d.png?imageMogr2/crop/!256x256r/gravity/center",
+            "userimg": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM6gVRkCqQSFGdybRgKwicAc7e2NIv7zh8VEoFicuUgv5cu3EjRWgRhurqHjbNcWZ3kqH23NwQCqibcjw/132",
+            "questions": [
+                { "type": "notice", "message": "您好，欢迎咨询，我是<b style='color: #ed4c18;'>肌肤管理老师（摩尔企服演示）</b>，感谢相遇，干净无瑕的皮肤真的会让身边的人爱上，蜕变成功后的你一定会感谢今天的这一次选择，为了给你提供更好的方法，请认真回答下方的几个问题:</div>" },
+                { "type": "menu","menuRowNum":3, "message": "请问您的年龄是?", "menu": [{ "text": "18岁以下", "next": false, "notice":"根据国家法律规定，18岁以下用户禁止使用本产品。" }, { "text": "18-35岁", "next": true }, { "text": "35岁以上", "next": true }] },
+                { "type": "menu","menuRowNum":3, "message": "请问你被痘痘困扰多长时间了?", "menu": [{ "text": "1年内", "next": true}, { "text": "1-3年", "next": true }, { "text": "3年以上", "next": true }] },
+                { "type": "menu","menuRowNum":3, "message": "请问您的痘痘严重程度是？", "menu": [{ "text": "轻度", "next": true}, { "text": "中度", "next": true }, { "text": "重度", "next": true }] },
+                { "type": "last", "message": "好的，大致问题老师已经了解，老师曾帮助过10万人成功改善了肌肤问题，用了老师的方法后皮肤会一点点变好，当天就能见效，7-15天消除，终身永不复发!这个请您放心就好，还需要您加一下老师的联系方式，更进一步的教你如何战痘成功!",  "btn": "点击立即添加老师"},
+            ]
+        };
+        $(document).ready(function() {
+            renderPage();
+            var height = $(".chat-header-swiper").width()*2/3;
+            $(".chat-header-swiper").css('height',$(".chat-header-swiper").width()*2/3);
+        });
+    </script>
+</body>
+
+</html>
